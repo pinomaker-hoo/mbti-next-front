@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
+    "lint": "eslint --fix \"src/**/*.{ts,tsx,js,jsx}\""
   },
   "dependencies": {
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.15",
     "@types/node": "18.15.11",
     "@types/react": "18.0.31",
     "@types/react-dom": "18.0.11",
