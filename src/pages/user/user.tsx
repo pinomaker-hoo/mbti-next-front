@@ -29,11 +29,15 @@ const UserPageView = (props: UserPageView) => {
       <Grid item xs={1} />
       <Grid item xs={12}>
         <Grid container spacing={3}>
-          {mbtiData.map((item, index) => (
-            <Grid item xs={12} key={index}>
-              <UserCard mbtiData={item} />
-            </Grid>
-          ))}
+          {mbtiData?.length > 0 ? (
+            mbtiData?.map((item, index) => (
+              <Grid item xs={12} key={index}>
+                <UserCard mbtiData={item} />
+              </Grid>
+            ))
+          ) : (
+            <Typography>데이터가 없습니다.</Typography>
+          )}
         </Grid>
       </Grid>
     </Grid>
