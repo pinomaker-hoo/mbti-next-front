@@ -11,6 +11,7 @@ interface UserCardProps {
 
 const UserCard = (props: UserCardProps) => {
   const { mbtiData } = props
+
   return <UserCardView mbtiData={mbtiData} />
 }
 
