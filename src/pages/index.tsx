@@ -13,7 +13,7 @@ export default function Home() {
         <Typography variant="h1"> 알아??</Typography>
       </Grid>
       <Grid item xs={12} sx={{ textAlign: 'center', mt: 45 }}>
-        <Link href="/user">
+        <Link href="/register">
           <Button
             variant="contained"
             fullWidth

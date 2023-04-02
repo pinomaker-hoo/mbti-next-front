@@ -1,3 +1,6 @@
+// ** Next Imports
+import Link from 'next/link'
+
 // ** Mui Imports
 import {
   Grid,
@@ -6,7 +9,10 @@ import {
   FormControl,
   MenuItem,
   Select,
+  Button,
 } from '@mui/material'
+
+// ** Types Imports
 import { UserInfo } from 'types'
 
 interface RegissterPageViewProps {
@@ -50,6 +56,13 @@ const RegissterPageView = ({ user, setUser }: RegissterPageViewProps) => {
             <MenuItem value="ESFP">ESFP</MenuItem>
           </Select>
         </FormControl>
+      </Grid>
+      <Grid item xs={12} sx={{ textAlign: 'center', mt: 45 }}>
+        <Link href="/user">
+          <Button variant="contained" sx={{ p: 2, width: '80%' }}>
+            시작하기!
+          </Button>
+        </Link>
       </Grid>
     </Grid>
   )
