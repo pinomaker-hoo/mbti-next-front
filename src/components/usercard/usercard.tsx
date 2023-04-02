@@ -10,7 +10,7 @@ interface UserCardView {
 
 const UserCardView = ({ mbtiData }: UserCardView) => {
   return (
-    <Card sx={{ p: 2 }}>
+    <Card sx={{ p: 2, borderRadius: 2 }}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography variant="h5">{mbtiData.mbti}</Typography>
