@@ -11,9 +11,7 @@ interface UserPageView {
   mbtiData: MbtiData[]
 }
 
-const UserPageView = (props: UserPageView) => {
-  const { mbtiData } = props
-
+const UserPageView = ({ mbtiData }: UserPageView) => {
   return (
     <Grid container spacing={6}>
       <Grid item xs={12} sx={{ textAlign: 'center', mt: 5 }}>

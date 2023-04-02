@@ -9,9 +9,7 @@ interface UserCardProps {
   mbtiData: MbtiData
 }
 
-const UserCard = (props: UserCardProps) => {
-  const { mbtiData } = props
-
+const UserCard = ({ mbtiData }: UserCardProps) => {
   return <UserCardView mbtiData={mbtiData} />
 }
 

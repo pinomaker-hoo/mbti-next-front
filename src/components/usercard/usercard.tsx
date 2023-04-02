@@ -8,9 +8,7 @@ interface UserCardView {
   mbtiData: MbtiData
 }
 
-const UserCardView = (props: UserCardView) => {
-  const { mbtiData } = props
-
+const UserCardView = ({ mbtiData }: UserCardView) => {
   return (
     <Card sx={{ p: 2 }}>
       <Grid container spacing={2}>

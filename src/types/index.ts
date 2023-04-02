@@ -3,3 +3,8 @@ export interface MbtiData {
   text: string
   name: string
 }
+
+export interface UserInfo {
+  name: ''
+  mbti: ''
+}
