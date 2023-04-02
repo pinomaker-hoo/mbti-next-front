@@ -18,13 +18,11 @@ const UserPageView = ({ mbtiData }: UserPageView) => {
         <Typography variant="h5">김인후님의 MBTI는 ENTJ이지만</Typography>
         <Typography variant="h5">사람들은 INFP라고 생각해요</Typography>
       </Grid>
-      <Grid item xs={1} />
-      <Grid item xs={10}>
-        <Button variant="contained" fullWidth>
+      <Grid item xs={12} sx={{ textAlign: 'center' }}>
+        <Button variant="contained" sx={{ width: '80%' }}>
           친구들에게 공유하기!
         </Button>
       </Grid>
-      <Grid item xs={1} />
       <Grid item xs={12}>
         <Grid container spacing={3} sx={{ p: 3 }}>
           {mbtiData?.length > 0 ? (
