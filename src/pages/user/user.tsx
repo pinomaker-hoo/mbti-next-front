@@ -26,7 +26,7 @@ const UserPageView = ({ mbtiData }: UserPageView) => {
       </Grid>
       <Grid item xs={1} />
       <Grid item xs={12}>
-        <Grid container spacing={3}>
+        <Grid container spacing={3} sx={{ p: 3 }}>
           {mbtiData?.length > 0 ? (
             mbtiData?.map((item, index) => (
               <Grid item xs={12} key={index}>
