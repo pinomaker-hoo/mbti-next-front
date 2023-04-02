@@ -1,6 +1,6 @@
 // ** Other View Imports
 import useInput from 'hooks/useInput'
-import RegissterPageView from './register'
+import RegissterPageView from 'view/register/register'
 
 const RegissterPage = () => {
   const [user, setUser] = useInput({ name: '', mbti: '' })

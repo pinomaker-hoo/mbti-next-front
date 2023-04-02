@@ -1,5 +1,5 @@
 // ** Other View Imports
-import UserPageView from './user'
+import UserPageView from 'view/user/user'
 
 const UserPage = () => {
   return <UserPageView mbtiData={data} />
