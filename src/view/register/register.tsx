@@ -15,11 +15,11 @@ import {
 // ** Types Imports
 import { UserInfo } from 'types'
 
-interface RegissterPageViewProps {
+interface RegisterPageViewProps {
   user: UserInfo
   setUser: () => any
 }
-const RegissterPageView = ({ user, setUser }: RegissterPageViewProps) => {
+const RegissterPageView = ({ user, setUser }: RegisterPageViewProps) => {
   return (
     <Grid container spacing={6}>
       <Grid item xs={12} sx={{ textAlign: 'center', mt: 5 }}>
