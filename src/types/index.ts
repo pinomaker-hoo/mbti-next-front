@@ -5,6 +5,8 @@ export interface MbtiData {
 }
 
 export interface UserInfo {
-  name: ''
-  mbti: ''
+  name: string
+  mbti: string
+  id: string
+  password: string
 }
