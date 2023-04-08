@@ -46,4 +46,4 @@ export const getRefrenshToken = (state: any) => state.user.refreshToken
 
 export default authSlice.reducer
 
-export const { updateUser, userLogout } = authSlice.actions
+export const { updateToken, userLogout } = authSlice.actions

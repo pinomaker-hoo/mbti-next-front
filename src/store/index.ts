@@ -11,6 +11,7 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import { api } from 'services'
+import auth from './auth'
 import { middleware } from './middleware'
 
 const persistConfig = {
@@ -22,6 +23,7 @@ const persistConfig = {
 
 const reducer = combineReducers({
   [api.reducerPath]: api.reducer,
+  auth,
 })
 
 const persistedReducer = persistReducer(persistConfig, reducer)
