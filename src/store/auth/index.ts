@@ -31,12 +31,12 @@ export const authSlice = createSlice({
       authApi.endpoints.login.matchFulfilled,
       (state, { payload }) => {
         state.user = {
-          id: payload.data.user.id,
-          name: payload.data.user.name,
-          mbti: payload.data.users.mbti,
+          id: payload.responseData.name,
+          name: payload.responseData.name,
+          mbti: payload.responseData.mbti,
         }
-        state.accessToken = payload.data.accessToken
-        state.refreshToken = payload.data.refreshToken
+        state.accessToken = payload.responseData.accessToken
+        state.refreshToken = payload.responseData.refreshToken
       }
     )
   },
