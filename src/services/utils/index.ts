@@ -4,13 +4,13 @@ import { Mutex } from 'async-mutex'
 import { updateToken, userLogout } from 'store/auth'
 
 const baseUrl = 'http://mbti.pinodev.shop:8080/api'
+// const baseUrl = 'http://localhost:8080/api'
 const baseQuery = fetchBaseQuery({
   prepareHeaders: (headers, { endpoint, getState }: any) => {
     const {
       auth: { accessToken },
     } = getState()
 
-    console.log(getState())
     if (accessToken) {
       headers.set('authorization', `Bearer ${accessToken}`)
     }
