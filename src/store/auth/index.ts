@@ -3,8 +3,19 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // ** Api Imports
 import { authApi } from 'services'
+import { RootState } from 'store'
 
-const initialState = {
+interface AuthType {
+  user: {
+    id: string
+    name: string
+    mbti: string
+  }
+  accessToken: string
+  refreshToken: string
+}
+
+const initialState: AuthType = {
   user: {
     id: '',
     name: '',
@@ -42,7 +53,10 @@ export const authSlice = createSlice({
   },
 })
 
-export const getRefrenshToken = (state: any) => state.user.refreshToken
+export const getMbtiAndName = (state: RootState) => ({
+  name: state.auth.user.name,
+  mbti: state.auth.user.mbti,
+})
 
 export default authSlice.reducer
 

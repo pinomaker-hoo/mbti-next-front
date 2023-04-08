@@ -19,7 +19,7 @@ const UserCardView = ({ mbtiData }: UserCardView) => {
           <Typography variant="body1">{mbtiData.text}</Typography>
         </Grid>
         <Grid item xs={12} sx={{ textAlign: 'right' }}>
-          <Typography variant="h6">{mbtiData.name}</Typography>
+          <Typography variant="h6">{`${mbtiData.guestMbti} ${mbtiData.name}`}</Typography>
         </Grid>
       </Grid>
     </Card>
