@@ -7,6 +7,7 @@ import { RootState } from 'store'
 
 interface AuthType {
   user: {
+    idx: number
     id: string
     name: string
     mbti: string
@@ -17,6 +18,7 @@ interface AuthType {
 
 const initialState: AuthType = {
   user: {
+    idx: 0,
     id: '',
     name: '',
     mbti: '',
@@ -42,6 +44,7 @@ export const authSlice = createSlice({
       authApi.endpoints.login.matchFulfilled,
       (state, { payload }) => {
         state.user = {
+          idx: Number(payload.responseData.idx),
           id: payload.responseData.name,
           name: payload.responseData.name,
           mbti: payload.responseData.mbti,
@@ -56,6 +59,7 @@ export const authSlice = createSlice({
 export const getMbtiAndName = (state: RootState) => ({
   name: state.auth.user.name,
   mbti: state.auth.user.mbti,
+  idx: state.auth.user.idx,
 })
 
 export default authSlice.reducer

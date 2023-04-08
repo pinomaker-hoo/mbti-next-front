@@ -4,6 +4,9 @@ import { Grid, Typography, Button } from '@mui/material'
 // ** Other View Imports
 import UserCard from 'components/usercard'
 
+// ** Other Imports
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+
 // ** Type Imports
 import { MbtiData } from 'types'
 
@@ -12,9 +15,16 @@ interface UserPageView {
   name: string
   mbti: string
   mostMbti: string
+  copyLink: string
 }
 
-const UserPageView = ({ mbtiData, name, mbti, mostMbti }: UserPageView) => {
+const UserPageView = ({
+  mbtiData,
+  name,
+  mbti,
+  mostMbti,
+  copyLink,
+}: UserPageView) => {
   return (
     <Grid container spacing={6}>
       <Grid item xs={12} sx={{ textAlign: 'center', mt: 5 }}>
@@ -24,9 +34,14 @@ const UserPageView = ({ mbtiData, name, mbti, mostMbti }: UserPageView) => {
         <Typography variant="h5">{`사람들 ${mostMbti}라고 생각해요`}</Typography>
       </Grid>
       <Grid item xs={12} sx={{ textAlign: 'center' }}>
-        <Button variant="contained" sx={{ width: '80%' }}>
-          친구들에게 공유하기!
-        </Button>
+        <CopyToClipboard
+          text={copyLink}
+          onCopy={() => alert('클립보드에 복사되었습니다.')}
+        >
+          <Button variant="contained" sx={{ width: '80%' }}>
+            친구들에게 공유하기!
+          </Button>
+        </CopyToClipboard>
       </Grid>
       <Grid item xs={12}>
         <Grid container spacing={3} sx={{ p: 3 }}>

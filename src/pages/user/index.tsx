@@ -14,8 +14,9 @@ import { getMbtiAndName } from 'store/auth'
 
 const UserPage = () => {
   const [mostMbti, setMostMbti] = useState<string>('')
-  const [user, setUser] = useState({ name: '', mbti: '' })
-  const { mbti, name } = useSelector(getMbtiAndName)
+  const [user, setUser] = useState({ name: '', mbti: '', idx: 0 })
+  const [copyLink, setCopyLink] = useState('')
+  const { mbti, name, idx } = useSelector(getMbtiAndName)
 
   const { data } = useGetMbtiListQuery(null)
 
@@ -59,14 +60,19 @@ const UserPage = () => {
 
   useEffect(() => {
     setMostMbti(getMostMbti())
-    setUser({ name, mbti })
+    setUser({ name, mbti, idx })
+    // setCopyLink(`http://mbti.pinodev.shop:3000/guest/${idx}`)
+    setCopyLink(`http://localhost:3000/guest/${idx}`)
   }, [])
+
+  console.log(user)
 
   return (
     <UserPageView
       mbtiData={mbtiData}
       name={user.name}
       mbti={user.mbti}
+      copyLink={copyLink}
       mostMbti={mostMbti}
     />
   )
