@@ -18,7 +18,7 @@ const GuestResultPage = () => {
 
   const [mostMbti, setMostMbti] = useState<string>('')
 
-  const { data } = useGetUserQuery(Number(router.query.id))
+  const { data, refetch } = useGetUserQuery(Number(router.query.id))
   const { data: mbti } = useGetMbtiListQuery(null)
 
   const user = useMemo(
@@ -68,8 +68,13 @@ const GuestResultPage = () => {
   }, [data])
 
   useEffect(() => {
+    if (!router.isReady) {
+      return
+    }
+
+    refetch()
     setMostMbti(getMostMbti())
-  }, [])
+  }, [router.isReady])
 
   return (
     <GuestResultPageView

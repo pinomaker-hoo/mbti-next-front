@@ -65,8 +65,6 @@ const UserPage = () => {
     setCopyLink(`http://localhost:3000/guest/${idx}`)
   }, [])
 
-  console.log(user)
-
   return (
     <UserPageView
       mbtiData={mbtiData}
