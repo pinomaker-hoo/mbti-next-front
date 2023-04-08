@@ -1,6 +1,3 @@
-// ** Next Imports
-import Link from 'next/link'
-
 // ** Mui Imports
 import {
   Grid,
@@ -10,6 +7,7 @@ import {
   MenuItem,
   Select,
   Button,
+  InputLabel,
 } from '@mui/material'
 
 // ** Types Imports
@@ -18,12 +16,52 @@ import { UserInfo } from 'types'
 interface RegisterPageViewProps {
   user: UserInfo
   setUser: () => any
+  regContent: () => any
+  passwordC: string
+  handlePasswordC: (e: React.ChangeEvent<HTMLInputElement>) => any
 }
-const RegissterPageView = ({ user, setUser }: RegisterPageViewProps) => {
+const RegissterPageView = ({
+  user,
+  setUser,
+  regContent,
+  passwordC,
+  handlePasswordC,
+}: RegisterPageViewProps) => {
   return (
     <Grid container spacing={6}>
       <Grid item xs={12} sx={{ textAlign: 'center', mt: 5 }}>
         <Typography variant="h3">회원가입</Typography>
+      </Grid>
+      <Grid item xs={12} sx={{ textAlign: 'center' }}>
+        <TextField
+          sx={{ width: '80%' }}
+          variant="outlined"
+          label="아이디를 입력해주세요"
+          value={user.id}
+          name="id"
+          onChange={setUser}
+        />
+      </Grid>
+      <Grid item xs={12} sx={{ textAlign: 'center' }}>
+        <TextField
+          sx={{ width: '80%' }}
+          variant="outlined"
+          type="password"
+          label="패스워드를 입력해주세요"
+          value={user.password}
+          name="password"
+          onChange={setUser}
+        />
+      </Grid>
+      <Grid item xs={12} sx={{ textAlign: 'center' }}>
+        <TextField
+          sx={{ width: '80%' }}
+          variant="outlined"
+          type="password"
+          label="패스워드 체크를 입력해주세요"
+          value={passwordC}
+          onChange={handlePasswordC}
+        />
       </Grid>
       <Grid item xs={12} sx={{ textAlign: 'center' }}>
         <TextField
@@ -37,7 +75,14 @@ const RegissterPageView = ({ user, setUser }: RegisterPageViewProps) => {
       </Grid>
       <Grid item xs={12} sx={{ textAlign: 'center' }}>
         <FormControl sx={{ textAlign: 'center', width: '80%' }}>
-          <Select label="MBTI" value={user.mbti} name="mbti" onChange={setUser}>
+          <InputLabel id="mbti">나의 MBTI는?</InputLabel>
+          <Select
+            labelId="mbti"
+            label="나의 MBTI는?"
+            value={user.mbti}
+            name="mbti"
+            onChange={setUser}
+          >
             <MenuItem value="INTJ">INTJ</MenuItem>
             <MenuItem value="INTP">INTP</MenuItem>
             <MenuItem value="ENTJ">ENTJ</MenuItem>
@@ -57,12 +102,14 @@ const RegissterPageView = ({ user, setUser }: RegisterPageViewProps) => {
           </Select>
         </FormControl>
       </Grid>
-      <Grid item xs={12} sx={{ textAlign: 'center', mt: 45 }}>
-        <Link href="/user">
-          <Button variant="contained" sx={{ p: 2, width: '80%' }}>
-            시작하기!
-          </Button>
-        </Link>
+      <Grid item xs={12} sx={{ textAlign: 'center', mt: 10 }}>
+        <Button
+          variant="contained"
+          sx={{ p: 2, width: '80%' }}
+          onClick={regContent}
+        >
+          회원가입
+        </Button>
       </Grid>
     </Grid>
   )
