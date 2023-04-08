@@ -14,3 +14,10 @@ export interface UserInfo {
   id: string
   password: string
 }
+
+export interface Answer {
+  name: string
+  mbti: string
+  guestMbti: string
+  text: string
+}

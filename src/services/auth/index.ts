@@ -21,7 +21,13 @@ export const authApi = api
           body: args,
         }),
       }),
+      getUser: builder.query({
+        query: (idx) => ({
+          url: `/user/${idx}`,
+        }),
+      }),
     }),
   })
 
-export const { useRegisterMutation, useLoginMutation } = authApi
+export const { useRegisterMutation, useLoginMutation, useGetUserQuery } =
+  authApi

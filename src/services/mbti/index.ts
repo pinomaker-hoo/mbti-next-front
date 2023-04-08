@@ -12,7 +12,14 @@ export const mbtiApi = api
           url: '/answer',
         }),
       }),
+      saveAnswer: builder.mutation({
+        query: ({ idx, ...args }) => ({
+          url: `/answer/mbti/${idx}`,
+          method: 'POST',
+          body: args,
+        }),
+      }),
     }),
   })
 
-export const { useGetMbtiListQuery } = mbtiApi
+export const { useGetMbtiListQuery, useSaveAnswerMutation } = mbtiApi
