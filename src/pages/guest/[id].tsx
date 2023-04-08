@@ -33,7 +33,6 @@ const GuestPage = () => {
   )
 
   const regContent = () => {
-    console.log('CLICK')
     for (const key in answer) {
       if (answer[key] === '') {
         alert('데이터를 전부 입력해주세요.')
