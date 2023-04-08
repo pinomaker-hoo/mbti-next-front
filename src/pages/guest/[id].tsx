@@ -43,7 +43,7 @@ const GuestPage = () => {
         .unwrap()
         .then((res) => {
           if (res.status === 200) {
-            router.push(`/guest/result/${router.query.id}`)
+            router.push(`/guest/result/${router.query.id}?mbti=${answer.mbti}`)
 
             return
           }
