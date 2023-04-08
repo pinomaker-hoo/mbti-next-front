@@ -13,9 +13,8 @@ import { isUndefined } from 'lodash'
 import { getMbtiAndName } from 'store/auth'
 
 const UserPage = () => {
-  const [mostMbti, setMostMbti] = useState<string>('')
-  const [user, setUser] = useState({ name: '', mbti: '', idx: 0 })
-  const [copyLink, setCopyLink] = useState('')
+  const [user, setUser] = useState<any>({ name: '', mbti: '', idx: 0 })
+  const [copyLink, setCopyLink] = useState<string>('')
   const { mbti, name, idx } = useSelector(getMbtiAndName)
 
   const { data } = useGetMbtiListQuery(null)
@@ -59,10 +58,9 @@ const UserPage = () => {
   }, [data])
 
   useEffect(() => {
-    setMostMbti(getMostMbti())
     setUser({ name, mbti, idx })
-    // setCopyLink(`http://mbti.pinodev.shop:3000/guest/${idx}`)
-    setCopyLink(`http://localhost:3000/guest/${idx}`)
+    setCopyLink(`http://mbti.pinodev.shop:3000/guest/${idx}`)
+    // setCopyLink(`http://localhost:3000/guest/${idx}`)
   }, [])
 
   return (
@@ -71,7 +69,7 @@ const UserPage = () => {
       name={user.name}
       mbti={user.mbti}
       copyLink={copyLink}
-      mostMbti={mostMbti}
+      mostMbti={getMostMbti()}
     />
   )
 }
