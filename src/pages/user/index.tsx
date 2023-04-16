@@ -57,6 +57,8 @@ const UserPage = () => {
     return a.name
   }, [data])
 
+  const mostMbti = useMemo(() => getMostMbti(), [data])
+
   useEffect(() => {
     setUser({ name, mbti, idx })
     setCopyLink(`http://mbti.pinodev.shop:3000/guest/${idx}`)
@@ -69,7 +71,7 @@ const UserPage = () => {
       name={user.name}
       mbti={user.mbti}
       copyLink={copyLink}
-      mostMbti={getMostMbti()}
+      mostMbti={mostMbti}
     />
   )
 }

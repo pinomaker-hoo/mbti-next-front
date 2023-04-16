@@ -8,7 +8,7 @@ import { useMemo, useCallback, useEffect, useState } from 'react'
 import GuestResultPageView from 'view/guest/guestResult'
 
 // ** Api Imports
-import { useGetUserQuery, useGetMbtiListQuery } from 'services'
+import { useLazyGetUserQuery, useGetMbtiListQuery } from 'services'
 
 // ** Other Imports
 import { isUndefined } from 'lodash'
@@ -16,18 +16,10 @@ import { isUndefined } from 'lodash'
 const GuestResultPage = () => {
   const router = useRouter()
 
-  const [mostMbti, setMostMbti] = useState<string>('')
+  const [user, setUser] = useState({ name: '', mbti: '' })
 
-  const { data, refetch } = useGetUserQuery(Number(router.query.id))
+  const [getData] = useLazyGetUserQuery()
   const { data: mbti } = useGetMbtiListQuery(null)
-
-  const user = useMemo(
-    () =>
-      isUndefined(data)
-        ? { name: '', mbti: '' }
-        : { name: data.responseData.name, mbti: data.responseData.mbti },
-    [data]
-  )
 
   const mbtiData: [] = useMemo(
     () => (isUndefined(mbti) ? [] : mbti.responseData),
@@ -65,15 +57,20 @@ const GuestResultPage = () => {
     }
 
     return a.name
-  }, [data])
+  }, [mbti])
+
+  const mostMbti = useMemo(() => getMostMbti(), [mbti])
 
   useEffect(() => {
     if (!router.isReady) {
       return
     }
 
-    refetch()
-    setMostMbti(getMostMbti())
+    getData(Number(router.query.id))
+      .unwrap()
+      .then((res) => {
+        setUser(res.responseData)
+      })
   }, [router.isReady])
 
   return (
