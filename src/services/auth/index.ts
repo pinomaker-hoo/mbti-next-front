@@ -29,5 +29,9 @@ export const authApi = api
     }),
   })
 
-export const { useRegisterMutation, useLoginMutation, useLazyGetUserQuery } =
-  authApi
+export const {
+  useRegisterMutation,
+  useLoginMutation,
+  useLazyGetUserQuery,
+  useGetUserQuery,
+} = authApi
