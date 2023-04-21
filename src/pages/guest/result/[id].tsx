@@ -66,11 +66,13 @@ const GuestResultPage = () => {
       return
     }
 
-    getData(Number(router.query.id))
-      .unwrap()
-      .then((res) => {
-        setUser(res.responseData)
-      })
+    if (router.query.id) {
+      getData(Number(router.query.id))
+        .unwrap()
+        .then((res) => {
+          setUser(res.responseData)
+        })
+    }
   }, [router.isReady])
 
   return (
