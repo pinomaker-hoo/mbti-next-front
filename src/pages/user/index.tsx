@@ -61,7 +61,7 @@ const UserPage = () => {
 
   useEffect(() => {
     setUser({ name, mbti, idx })
-    setCopyLink(`https://mbti.swygbro.com/${idx}`)
+    setCopyLink(`https://mbti.swygbro.com/guest/${idx}`)
   }, [])
 
   return (
