@@ -61,8 +61,7 @@ const UserPage = () => {
 
   useEffect(() => {
     setUser({ name, mbti, idx })
-    setCopyLink(`http://mbti.pinodev.shop:3000/guest/${idx}`)
-    // setCopyLink(`http://localhost:3000/guest/${idx}`)
+    setCopyLink(`https://mbti.swygbro.com/${idx}`)
   }, [])
 
   return (
