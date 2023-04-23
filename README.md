@@ -4,7 +4,6 @@
 
 ```
 https://mbti.swygbro.com/
-
 ```
 
 ### Node, Npm Version
