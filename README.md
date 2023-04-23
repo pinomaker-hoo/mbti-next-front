@@ -3,7 +3,7 @@
 ### URL
 
 ```
-http://mbti.pinodev.shop:3000/
+https://mbti.swygbro.com/
 
 ```
 
