@@ -4,7 +4,20 @@ import Link from 'next/link'
 // ** Mui Imports
 import { Grid, Typography, Button } from '@mui/material'
 
+// ** Lottie Imports
+import Lottie from 'react-lottie'
+import IntroLottie from 'lottie/intro.json'
+
 export default function Home() {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: IntroLottie,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  }
+
   return (
     <Grid container spacing={6}>
       <Grid item xs={12} sx={{ ml: 14, mt: 5 }}>
@@ -18,7 +31,10 @@ export default function Home() {
           알아??
         </Typography>
       </Grid>
-      <Grid item xs={12} sx={{ textAlign: 'center', mt: 45 }}>
+      <Grid item xs={12} sx={{ textAlign: 'center' }}>
+        <Lottie options={defaultOptions} height={250} width={300} />
+      </Grid>
+      <Grid item xs={12} sx={{ textAlign: 'center', mt: 15 }}>
         <Link href="/login" style={{ textDecoration: 'none' }}>
           <Button
             variant="contained"
