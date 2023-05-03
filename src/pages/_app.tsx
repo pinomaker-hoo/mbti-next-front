@@ -11,13 +11,20 @@ import 'styles/globals.css'
 import { Provider } from 'react-redux'
 import { store } from 'store'
 
+// ** Other Imports
+import { isMobile } from 'react-device-detect'
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyles styles={{ backgroundColor: 'blue' }} />
         <CssBaseline />
-        <Component {...pageProps} />
+        <div className={isMobile ? '' : 'container'}>
+          <div className={isMobile ? '' : 'content'}>
+            <Component {...pageProps} />
+          </div>
+        </div>
       </ThemeProvider>
     </Provider>
   )
